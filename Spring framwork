@@ -1,0 +1,199 @@
+Spring : Spring is dependency Injection framwork to make java app loosely coupled.
+		
+		->easy to develop Java EE
+
+
+		What is Depencency Injection?
+
+			-> Its design pattern.
+			->Remove the dependency from program code so that it can easy to manage and test the program
+
+			->class Ramu{
+				Ramu(){
+					Geeta geeta = new Geeta();
+				}
+				public void doWork(){
+
+				}
+			}
+
+			//we need to create Geeta's object into Ramu for help to Ramu ==> tightly Coupling
+
+			//In Spring: Inject object of Geeta class into Ramu class automatically ==> loosely Coupling
+			//IOC(Inversion of Control) :design pattern that are used for remove dependency from the programming code
+
+			class Ramu(){
+			Geeta geeta;
+				Ramu(Geeta geeta){
+					this.geeta = geeta;
+				}
+			}
+
+
+			->Two ways to perform Dependency Injection in Spring framework:
+
+				1)By Constructor
+				2)By Setter Method
+
+			1)By Constructor
+
+
+
+
+			//Thus, IOC makes the code loosely coupled. In such case, there is no need to modify the code if our logic is moved to new environment
+
+
+			=> Provide that type of imformation to the IOC container : either by XML file or annotation.
+
+			IOC : Create object of the class and inject to another class it's called inversion of control (In Spring)
+
+
+	JEE: java Enterprice Environment 
+
+		UI Layer       						ProductController(Request accept) ==> 
+		---------------						-----------------
+		Bussiness Layer/Service Layer		Product Service (bussiness service) => ProductDao pd = new ProductDao();
+		---------------						-----------------
+		Data Access Layer							Product Dao
+		--------------						-----------
+		Database							Database
+
+
+
+		Notice : Dao means => DAO stands for data access object. Usually, the DAO class is responsible for 
+				two concepts: encapsulating the details of the persistence layer and providing a CRUD interface for a single entity
+
+
+		UI layer -> JSF/Spring MVC
+		Bussiness layer -> Security / Transaction Management
+		Data Access layer -> Spring JDBC / Spring ORM 
+
+
+
+
+Spring Modules
+	
+	: Spring Core Module = > 1) Core 2)	bean 3) Context 4) spring expression language
+
+
+	1) Core
+		
+		-> IOC(Inversion of Control) and DI(Dependency Injection)
+
+	2) bean
+
+		-> Fectory design 
+
+	3) Context 
+	
+		-> Inherit fetures from Bean and also JEE / Basic Remoting / internationalization
+
+	4) Spring expression language
+
+		->defined in JSP
+		->support setting and getting properties
+		->method Invocation
+		->accessing collection 
+		->named variables
+		->logical Operation
+		->Retrieval of Objects by name
+
+
+	:AOP => Aspect obejct programming
+
+		->aspect oriented programming implementation where you can use Advices, Pointcuts etc. to decouple the code.
+
+	INstrumentation :
+
+		-> ClassLoader implementation
+
+	Messaging:
+
+		-> message to map with method
+
+	Data Access : JDBC / ORM / JMS / OXM 
+
+		->basically provide support to interact with the database.
+
+	Web Modules
+
+		-> web / Servlet / protlet / WebSocket
+
+		->  These modules provide support to create web application.
+
+	
+
+Beans : In Spring, a bean is an object that the Spring container instantiates, assembles, and manages.
+
+
+Spring Container(IOC) :
+
+
+	->Spring IoC container is responsible for managing the objects of an application. It uses dependency injection to achieve inversion of control. 
+
+	->Object Create
+	->hold Objects in memory
+	->Inject object into another object as required
+
+	Beans(POJO) -> to IOC -> Create object for injection --> application get object
+	Config(properties / dependency) -> to IOC 
+
+	->The IoC container gets informations from the XML file and works accordingly.
+
+
+
+
+	Two interface Represent Spring IOC container:
+
+		1) BeanFectory
+		2) ApplicationContext
+
+	1) BeanFectory
+
+	-> Root interface for accessing the spring container
+	-> its provide basic functionaly for managing beans.
+
+	2) ApplicationContext
+
+	->the primary job of the ApplicationContext is to manage beans.
+	-> sub-interface of the BeanFectory
+	-> provides more enterprise-specific functionalities
+
+
+
+Autowired:
+
+	-> inject object dependency implicitly.
+	-> It internally uses setter or constructor injection.
+
+
+	Advantage: less code because on't need to write the code to inject the dependency explicitly.
+
+	disadvantage : It can't be used for primitive and string values.
+
+
+	Autowired Mode:
+
+		1)no : default autowiring mode. It means no autowiring bydefault.
+		2)byName : object dependency according to name of the bean.
+					-> property name and bean name must be same
+
+		3) byType : object dependency according to type 
+					-> property name and bean name can be different.
+
+
+
+SOLID: 
+
+	I : Interface Segregation Principle
+
+		-> Client should never forced to implement an interface that it does not use.
+
+		E.x. : Veg and Non-veg resturant
+
+	D : Depedency Injection
+
+		-> High level module should not directly depend to the low level modules , instead they should depend on abstraction.
+
+		
+
